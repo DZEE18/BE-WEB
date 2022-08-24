@@ -2,6 +2,7 @@
 # abort on errors
 set -e
 # build
+npm install
 npm run build
 # navigate into the build output directory
 cd dist
