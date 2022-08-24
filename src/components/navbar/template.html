@@ -1,0 +1,22 @@
+<div class="navbar-container border-bottom">
+    <ul class="ul-navbar txt-center">
+        <li style="position: absolute;left: 12px;">
+            <i class="fa fa-bars font20 mt16 pointer"></i>
+        </li>
+        <li>
+            <router-link :to="{name: 'home'}">
+                <img :src="require('@/assets/logo2.png')" class="h40 img-cover mt5" />
+            </router-link>
+        </li>
+        <li style="position: absolute;top:0px;right: 12px;">
+            <router-link :to="{name: 'cart'}">
+                <i class="fa fa-shopping-cart font20 mt16 pointer txt-dark"></i>
+            </router-link>
+        </li>
+    </ul>
+
+    <div @click="closemodel" v-if="popupshow.sidebar" class="overlay-slide fadeIn-overlay"></div>
+    <div :class="popupshow.sidebar ? 'sidebar-con animmation-left-right' : 'sidebar-con animmation-left-right-close'">
+        <Menusidebar></Menusidebar>
+    </div>
+</div>

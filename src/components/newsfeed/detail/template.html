@@ -1,0 +1,59 @@
+<div class="overlay-controller">
+    <div @click="closeModal" class="overlay"></div>
+    <div class="content-container fixed-center bg-black">
+        <div class="flex-row">
+            <div class="content-left">
+                <img src="https://iqonic.design/themes/socialv/html/images/page-img/p1.jpg" />
+            </div>
+            <div class="content-right">
+                <div class="content-scroll m-scroll">
+                    <div class="row flex-row border-bottom p12">
+                        <img src="https://iqonic.design/themes/socialv/html/images/user/1.jpg"
+                        class="w50 h50 rounded img-cover"/>
+                        <div class="pl12">
+                            <p class="mb0">Monty Carlo</p>
+                            <p class="txt-xs txt-info mb0">23 min</p>
+                        </div>
+                    </div>
+                    <div class="row p12">
+                        <p class="txt-dark mb0 fw200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus</p>
+                    </div>
+                    <div class="row p12 border-bottom">
+                        <img src="https://iqonic.design/themes/socialv/html/images/icon/01.png"
+                        class="h22 pointer go-left mr12"/>
+                        <span class="txt-dark-light hover mr24 pointer">
+                            136 Likes
+                        </span>
+                        <span class="txt-dark-light hover mr24 pointer">
+                            300 Comments
+                        </span>
+                        <span class="txt-dark-light hover mr24 pointer">
+                            120 Shares
+                        </span>
+                    </div>
+    
+                    <div class="row p12">
+                        <div v-for="c in 8" class="flex-row pointer">
+                            <img src="https://iqonic.design/themes/socialv/html/images/user/02.jpg"
+                            class="w46 h46 rounded img-cover" />
+                            <div class="pl12">
+                                <p class="txt-sm mb0">Monty Carlo</p>
+                                <p class="txt-dark-light font14 fw300 mb0">
+                                    Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus
+                                </p>
+                                <p>
+                                    <span class="txt-xs txt-info mr24">Reply</span>
+                                    <span class="txt-xs txt-dark-light mr24">50 min</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-row p12 border-top">
+                    <textarea class="input outline-dark max-h200" rows="1" placeholder="Write a comment"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

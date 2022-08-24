@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="row bg-white p12 round4 border-bottom">
+        <div class="flex-row">
+            <img src="https://iqonic.design/themes/socialv/html/images/user/1.jpg"
+            class="w50 h50 rounded img-cover"/>
+            <div class="pl12">
+                <p class="mb0">Monty Carlo <span class="txt-dark-light">added new post</span></p>
+                <p class="txt-xs txt-info">23 min</p>
+            </div>
+        </div>
+        <div class="row pv6">
+            <p class="txt-dark mb0 fw200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus</p>
+        </div>
+        <div class="row pv12">
+            <img @click="modalDetail" src="https://iqonic.design/themes/socialv/html/images/page-img/p1.jpg"
+            class="row round4"/>
+        </div>
+        <div class="row pv6">
+            <img src="https://iqonic.design/themes/socialv/html/images/icon/01.png"
+            class="h22 pointer go-left mr12"/>
+            <span @click="modalLike('Like')" class="txt-dark-light hover mr24 pointer">
+                136 Likes
+            </span>
+            <span @click="modalComment" class="txt-dark-light hover mr24 pointer">
+                300 Comments
+            </span>
+            <span @click="modalLike('Share')" class="txt-dark-light hover mr24 pointer">
+                120 Shares
+            </span>
+        </div>
+    </div>
+
+    <Reaction v-if="display.modal.like.show" 
+        :title="display.modal.like.title"
+        :callback="closeModal"/>
+
+    <Comment v-if="display.modal.comment.show"
+        :callback="closeModal" />
+
+    <Detail v-if="display.modal.detail.show"
+        :callback="closeModal"/>
+</div>

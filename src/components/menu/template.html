@@ -1,0 +1,109 @@
+<div>
+    <div id="UserDoc">
+        <div class="head">
+            <p id="logo"> <i class="fas fa-home"></i> <b>Web3.js</b></p>
+            <p id="v">v1.2.1</p>
+            <input class="search" type="search" name="search" value="" placeholder="Search docs">
+        </div>
+        <div class="menu">
+            <div class="dropmenu">
+                <p style="color: #2980B9; padding-left: 15px;">USER DOCUMENTATION</p>
+
+                <!-- startding -->
+                <nuxt-link to="/#">
+                    <li class="padlink" @click="dorpDown">Getting Started &nbsp; &nbsp;
+                        <i class="fas fa-caret-down"></i>
+                    </li>
+                    <div v-if="drop">
+                        <nuxt-link to="/addingweb">
+                            <li class="dropstyle">Adding web3.js</li>
+                        </nuxt-link>
+                    </div>
+                </nuxt-link>
+
+
+                <nuxt-link to="/callbacks">
+                    <li class="padlink" @clink="dorpDown">Callbacks Promises Events</li>
+                </nuxt-link>
+
+                <nuxt-link to="/jsonInterface">
+                    <li class="padlink" @click="dorpGlossay">Glossay &nbsp; &nbsp; <i class="fas fa-caret-down"></i>
+                    </li>
+                    <div v-if="dropGloss">
+                        <li class="dropstyle">json interface</li>
+                    </div>
+                </nuxt-link>
+
+                <p style="color: #2980B9; padding-left: 15px;">API REFERENCE</p>
+
+                <nuxt-link to="/callbacks">
+                    <li class="padlink" @click="dorpWeb"> Web3 &nbsp; &nbsp; <i class="fas fa-caret-down"></i></li>
+                    <div v-if="Web3">
+                        <li class="dropstyle">Web3.modules</li>
+                        <li class="dropstyle">Web3.object</li>
+                        <li class="dropstyle">version</li>
+                        <li class="dropstyle">utils</li>
+                        <li class="dropstyle">setProvider</li>
+                        <li class="dropstyle">providers</li>
+                        <li class="dropstyle">givenProvider</li>
+                        <li class="dropstyle">currentProvider</li>
+                        <li class="dropstyle">BatchRequest</li>
+                        <li class="dropstyle">extend</li>
+                    </div>
+                </nuxt-link>
+
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+                <li class="padlink">web3.*.net</li>
+
+                <div class="Docs">
+                    
+                    <div class="readhead">
+                        <span class="version"> <i class="fas fa-book"></i> &nbsp; &nbsp; Read the Docs </span>
+                        <span class="version2" @click="dorpversion"><b class="colorgreen"> V:V1.2.1</b> &nbsp; &nbsp; <i
+                                class="fas fa-caret-down"></i> </span>
+                    </div><br><br>
+                    <div class="headerversion" v-if="dropver">
+                            <div>
+                                <label>Versions</label><br><br>
+                                <span>v2.0.0-alpha.1 &nbsp; &nbsp; v2.0.0-alpha &nbsp; &nbsp; v1.2.1 v1.2.0</span><br><br>
+                            </div> 
+                            <div>
+                                <label>Downloads</label> <br><br>
+                                <span>PDF HTML Epub</span><br><br>
+                            </div>
+                            <div>
+                                <label>On Read the Docs</label> <br><br>
+                                <span>Project Home &nbsp; &nbsp; Builds &nbsp; &nbsp; Downloads</span><br><br>
+                            </div>
+                            <div>
+                                <label>On GitHub</label> <br><br>
+                                <span>View</span><br><br>
+                            </div>
+                            <div>
+                                <label>Search</label><br><br>
+                                <input type="search" name="search" value="" placeholder="Search docs"><br><br>
+                            </div>
+                            <hr>
+                            <label> &nbsp; &nbsp;Hosted by <span class="colorblue">Read the Docs · Privacy
+                                    Policy</span></label>
+                        </div>
+                </div>
+                <br><br><br><br><br><br><br><br>
+            </div>
+
+        </div>
+
+    </div>
+</div>

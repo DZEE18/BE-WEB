@@ -1,0 +1,33 @@
+<div>
+    <p class="p12 mb0"><b>Categories :</b></p>
+
+    <ul class="ul-nav-menu">
+        <li v-for="(menu,menuIndex) in menus" :key="(menu,menuIndex)" class="">
+            <router-link :to="{name: menu.routeName}" :class="menuIndex == 1 ? 'active' : ''">
+                <img :src="menu.img" class="w42 h42 mr3" /> {{menu.label }}
+            </router-link>
+            <ul v-if="menu.children[0]" class="ul-nav-menu" style="padding-left: 24px;">
+                <li v-for="(child,childIndex) in menu.children" :key="(child,childIndex)" class="">
+                    <router-link :to="{name: child.routeName}"><i :class="child.icon" style="padding-right: 6px;"></i> {{child.label}}</router-link>
+                </li>
+            </ul>
+        </li>
+
+        <!-- <li @click="dorpDown('information')" class="sidebar"> 
+            <i class="fas fa-cog"></i> Information 
+            <i class="fas fa-caret-down" style="float: right;"></i>
+        </li>
+        <ul v-if="menudslide.info" class="sidebar animate-bottom">
+            <li @click="menu('policyprivacy')" :class="display.menu === 'policyprivacy' ? 'active' : ''">
+                <i class="fas fa-angle-double-right"></i> Policy & Privacy</li>
+            <li @click="menu('terncondition')" :class="display.menu === 'terncondition' ? 'active' : ''"> 
+                <i class="fas fa-angle-double-right"></i> Tern & Condition</li>
+            <li @click="menu('aboutus')" :class="display.menu === 'aboutus' ? 'active' : ''">​
+                <i class="fas fa-angle-double-right"></i>​​ About Us</li>
+        </ul> -->
+
+    </ul>
+    <div hidden class="row p12">
+        <router-link :to="{name: 'login'}"><button class="row btn btn-primary btn-md">Log out</button></router-link>
+    </div>
+</div>

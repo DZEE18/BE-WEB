@@ -1,0 +1,153 @@
+#UserDoc{
+    width:19%;
+    height:100%;
+    float:left;
+    padding-top: -0px;
+    position:fixed;
+  }
+  #logo{
+    text-align:center;
+  }
+  #v{
+    text-align:center;
+    color: rgba(255,255,255,0.3);
+  }
+  .search{
+    width:100%;
+    border-radius: 50px;
+    padding: 7px 13px;
+    border:none;
+  }
+  .head{
+    width: 19%;
+    height: auto;
+    background-color: #2980B9;
+    color:white;
+    padding-top: -0px;
+    padding: 15px 15px 15px 15px;
+    position:fixed;
+    float: left;
+    display: block;
+  }
+  div{
+    display: block;
+  }
+  .menu{
+    width: 100%;
+    color: #2980B9;
+    background-color: #353535;
+    float: left;
+    display: block;
+    padding-top: 146px ;
+    font-size: 14.4px;
+  }
+  .dropmenu{
+        color: white;
+        height: 100%;
+        list-style: none;
+        padding-top: 0px;
+        overflow-y: scroll;
+        max-height: 100vh;
+  }
+  li{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  li:hover{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: rgb(255, 255, 255);
+    background-color: #6e6e6e;
+    cursor: pointer;
+  }
+  li:focus{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: rgb(255, 255, 255);
+    background-color: #6e6e6e;
+    cursor: pointer;
+  }
+  a{
+    
+    transform: translateY(-2em);
+    z-index: -1;
+    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+
+    list-style: none;
+    text-decoration: none;
+    color: white;
+  }
+  a:hover{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .padlink{
+    padding-left: 15px;
+    transition-delay: 0s, 0s, 0.3s;
+
+  }
+
+  .dropstyle{
+    padding-left: 35px; 
+    background: rgb(230, 230, 230); 
+    color: black;
+  }
+  .Docs{
+    padding: 20px;
+    background-color: #272525;
+    display: block;
+    text-align: right;
+    font-size: 90%;
+    cursor: pointer;
+    color: #27AE60;
+    /* position: fixed; */
+    position:relative;
+  }
+  .version{
+    color: white;
+    align-items: center;
+    display: flex;
+    float: left;
+    font-size: 14px;
+  }
+.version2{
+  color: white;
+  float:right;
+  display: flex;
+}
+.headerversion{
+  text-decoration: none;
+  color: white;
+  /* margin: 5px; */
+  text-align: left;
+  font-size: 13px;
+}
+label{
+  color: rgba(255,255,255,0.3);
+  font-size: 15px;
+}
+.colorblue{
+  color: #408090;
+  font-style: italic;
+}
+.colorgreen{
+  color:rgb(0, 112, 32);
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 1021px){
+ #UserDoc{
+   display: none;
+ }
+ 
+}
+
+
+
+
+
+
+  

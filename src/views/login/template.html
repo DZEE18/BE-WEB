@@ -1,0 +1,43 @@
+<div class="con-login">
+    <div class="box-form p50" style="background: #D9D9D9">
+        <div class="row txt-center">
+            <p class="mb0" style="font-size: 42px;">I help your buying</p>
+            <p class="font16 txt-secondary">You can buy anytimes anywhere</p>
+        </div>
+        <div class="r">
+            <img :src="require('@/assets/images/thumb-login.png')" style="width:100%" />
+        </div>
+    </div>
+    <div class="box-form">
+        <div class="box-login p50">
+            <div class="imgcontainer txt-center">
+                <p class="mt24 mb0" style="font-size: 32px;"><b>Manage Your Orders</b></p>
+                <p class="font16 txt-secondary">Login into your account</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <label for="uname">Username/Phone</label>
+                    <input @keyup.enter="onLogin" v-model="body.email" type="text" placeholder="Username/Phone" class="input-info outline-success">
+                </div>
+                <div class="row mt6">
+                    <label for="psw">Password</label>
+                    <div class="mb6" style="display: flex;align-items: center;position: relative;">
+                        <input @keyup.enter="onLogin" v-model="body.password" :type="isShowPassword ? 'text' : 'password'" name="password" placeholder="Enter password" class="input-info outline-success">
+                        <i class="fas fa-eye show-icon pointer" v-if="isShowPassword" @click="isShowPassword = !isShowPassword"></i>
+                        <i class="fas fa-eye-slash show-icon pointer" v-else @click="isShowPassword = !isShowPassword"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="font14 txt-info go-right pointer">Forgot password?</span>
+                </div>
+                <div class="row txt-center mt16">
+                    <button v-if="!isLogin" @click="onLogin" class="btn btn-success btn-md" style="width:200px">Log In</button>
+                    <button v-else class="btn btn-success btn-md" style="width:200px">Loading...</button>
+                </div>
+                <div class="row mt50 txt-center">
+                    <span class="font14">Don't have any account?</span> <router-link :to="{name: 'register'}" class="txt-info">Register now</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

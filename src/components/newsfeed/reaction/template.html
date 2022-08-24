@@ -1,0 +1,21 @@
+<div class="overlay-controller">
+    <div @click="closeModal" class="overlay"></div>
+    <div class="modal-md fixed-center match-height">
+        <div class="modal-header border-bottom">
+            <span>{{title}}</span>
+        </div>
+        <div class="modal-body p12">
+            <div v-for="l in 2" class="flex-row row-hover pointer p8">
+                <img src="https://iqonic.design/themes/socialv/html/images/user/02.jpg"
+                class="w46 h46 rounded img-cover" />
+                <div class="pl12">
+                    <p class="mb0">Monty Carlo</p>
+                    <p class="txt-xs txt-dark-light mb0">23 min</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer border-top">
+            <button @click="closeModal" class="btn btn-secondary go-right">Cancel</button>
+        </div>
+    </div>
+</div>

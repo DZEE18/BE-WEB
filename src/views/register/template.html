@@ -1,0 +1,65 @@
+<div class="con-login">
+    <div class="box-form p50" style="background: #D9D9D9">
+        <div class="row txt-center">
+            <p class="mb0" style="font-size: 42px;">I help your buying</p>
+            <p class="font16 txt-secondary">You can buy anytimes anywhere</p>
+        </div>
+        <div class="r">
+            <img :src="require('@/assets/images/thumb-login.png')" style="width:100%" />
+        </div>
+    </div>
+    <div class="box-form">
+        <div class="box-login">
+            <div class="imgcontainer txt-center">
+                <p class="mb0" style="font-size: 32px;"><b>Registration</b></p>
+                <p class="font16 txt-secondary">Entry your account information</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 pr6">
+                        <label for="firstname">First name</label>
+                        <input v-model="body.firstname" type="text" placeholder="Enter firstname" class="input-info outline-success">
+                    </div>
+                    <div class="col-6 pl6">
+                        <label for="lastname">Last name</label>
+                        <input v-model="body.lastname" type="text" placeholder="Enter lastname" class="input-info outline-success">
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="email">Email</label>
+                    <input v-model="body.email" type="text" placeholder="Enter email" class="input-info outline-success">
+                </div>
+                <div class="row">
+                    <label for="phone">Phone</label>
+                    <input v-model="body.phone" type="number" placeholder="Enter phone" class="input-info outline-success">
+                </div>
+                <div class="row">
+                    <label for="gender">Gender</label>
+                    <select v-model="body.gender" class="input-info outline-success">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label for="address">Address</label>
+                    <input v-model="body.address" type="text" placeholder="Enter address" class="input-info outline-success">
+                </div>
+                <div class="row">
+                    <label for="psw">Password</label>
+                    <div class="mb6" style="display: flex;align-items: center;position: relative;">
+                        <input v-model="body.password" :type="isShowPassword ? 'text' : 'password'" name="password" placeholder="Enter password" class="input-info outline-success">
+                        <i class="fas fa-eye show-icon pointer" v-if="isShowPassword" @click="isShowPassword = !isShowPassword"></i>
+                        <i class="fas fa-eye-slash show-icon pointer" v-else @click="isShowPassword = !isShowPassword"></i>
+                    </div>
+                </div>
+                <div class="row txt-center mt16">
+                    <button v-if="!isRegister" @click="onRegister" class="btn btn-success btn-md" style="width:200px">Register</button>
+                    <button v-else class="btn btn-primary btn-md" style="width:200px">Loading...</button>
+                </div>
+                <div class="row mt16 txt-center">
+                    <span class="font14">Already have account?</span> <router-link :to="{name: 'login'}" class="txt-info">Login now</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

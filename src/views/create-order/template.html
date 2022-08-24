@@ -1,0 +1,77 @@
+<div class="con-login">
+    <div class="box-form p50" style="background: #D9D9D9">
+        <div class="row txt-center">
+            <p class="mb0" style="font-size: 42px;">I help your buying</p>
+            <p class="font16 txt-secondary">You can buy anytimes anywhere</p>
+        </div>
+        <div class="r">
+            <img :src="require('@/assets/images/thumb-login.png')" style="width:100%" />
+        </div>
+    </div>
+    <div class="box-form" style="overflow-y: auto;">
+        <div style="width: 100%;height: 50px;position: sticky;top:0;left:0;background: #fff;padding: 16px 16px;">
+            <span @click="onLogout" class="go-right hover pl6">Log Out</span>
+            <router-link :to="{name: 'list-order'}" class="go-right pr6 hover" style="border-right: 1px solid #999;">My Order </router-link>
+        </div>
+        <div class="box-login">
+            <div class="row mt16 txt-center">
+                <p class="mt24 mb0" style="font-size: 32px;"><b>Create Order</b></p>
+            </div>
+            <div class="container">
+                <p class="ph6 mb0"><b>Product Information</b></p>
+                <div class="row">
+                    <div class="col-8 p6">
+                        <label for="productLink">Product Link</label>
+                        <input v-model="body.url" id="productLink" type="text" placeholder="Ex: copy link from toaboa" class="input">
+                    </div>
+                    <div class="col-4 p6">
+                        <label >Upload Image</label>
+                        <input type="file" accept="images/*" multiple placeholder="Username/Phone" class="input h38">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 p6">
+                        <label for="quantity">Quantity</label>
+                        <input v-model="body.qty" id="quantity" type="number" class="input">
+                    </div>
+                    <div class="col-6 p6">
+                        <label for="size">Size</label>
+                        <input v-model="body.size" id="size" type="text" class="input">
+                    </div>
+                    <div class="col-6 p6">
+                        <label for="color">Color</label>
+                        <input v-model="body.color" id="color" type="text" class="input">
+                    </div>
+                    <div class="col-6 p6">
+                        <label for="price">Price</label>
+                        <input v-model="body.price" id="price" type="text" class="input">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p6">
+                        <label for="description">Description</label>
+                        <textarea v-model="body.description" id="description" rows="3" placeholder="Ex: size, color, etc..." class="input"></textarea>
+                    </div>
+                </div>
+                <p class="ph6 mb0"><b>Your Information</b></p>
+                <div class="row">
+                    <div class="col-12 p6">
+                        <label for="name">Name</label>
+                        <input v-model="body.name" id="name" type="text" placeholder="Your name" class="input">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p6">
+                        <label for="phone">Phone</label>
+                        <input v-model="body.phone" id="phone" type="text" placeholder="+855123321890" class="input">
+                    </div>
+                </div>
+
+                <div class="row txt-center mt16">
+                    <button v-if="!isCreating" @click="createProduct" class="btn btn-success btn-md" style="width:200px">Order Now</button>
+                    <button v-else class="btn btn-success btn-md" style="width:200px">Loading...</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

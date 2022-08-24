@@ -1,0 +1,9 @@
+.sidebar-container {
+    width: 230px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding-top: 62px;
+}

@@ -1,0 +1,80 @@
+.img-round {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ul-nav-menu {
+    padding: 0 12px;
+}
+
+.ul-nav-menu li {
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    margin: 6px 0;
+}
+
+.ul-nav-menu li a {
+    width: 100%;
+    padding: 3px;
+    display: block;
+    color: var(--dark);
+    border-radius: 32px;
+    background: var(--secondary);
+}
+
+.ul-nav-menu li>i {
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.ul-nav-menu li:hover a {
+    color: var(--white);
+    background: var(--primary-light);
+}
+
+.ul-nav-menu .active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.sidebar:active {
+    background: #242d37 !important;
+    color: var(--white) !important;
+}
+
+.sidebar li {
+    padding-left: 44px;
+    background: #293141;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #19222e;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #293141;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #293141;
+}

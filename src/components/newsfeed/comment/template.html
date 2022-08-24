@@ -1,0 +1,29 @@
+<div class="overlay-controller">
+    <div @click="closeModal" class="overlay"></div>
+    <div class="modal-md fixed-center match-height">
+        <div class="modal-header border-bottom">
+            <span>Comment</span>
+        </div>
+        <div class="modal-body p12">
+            <div v-for="c in 10" class="flex-row pointer p8">
+                <img src="https://iqonic.design/themes/socialv/html/images/user/02.jpg"
+                class="w46 h46 rounded img-cover" />
+                <div class="pl12">
+                    <p class="txt-sm mb0">Monty Carlo</p>
+                    <p class="txt-dark-light font14 fw300 mb0">
+                        Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus
+                    </p>
+                    <p>
+                        <span class="txt-xs txt-info mr24">Reply</span>
+                        <span class="txt-xs txt-dark-light mr24">50 min</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer border-top">
+            <div class="flex-row">
+                <textarea class="input outline-dark max-h200" rows="1" placeholder="Write a comment"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

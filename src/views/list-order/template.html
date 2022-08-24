@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="row p12 border-bottom">
+        <span class="font20 go-left"><b>BuyEasier</b></span>
+        <span @click="onLogout" class="go-right mt4 ph6 border-left hover">Log Out</span>
+        <router-link :to="{name: 'create-order'}" class="go-right mt4 ph6 txt-black hover">New Order</router-link>
+    </div>
+    <div class="row p16">
+        <p><b>Your Orders</b></p>
+        <div class="row">
+            <table style="width:100%">
+                <thead style="border-bottom: 1px solid #ddd">
+                    <th width="50px" class="txt-center">#</th>
+                    <th width="120px" class="txt-center">Image</th>
+                    <th>Item</th>
+                    <th width="100px">Quantity</th>
+                    <th width="100px">Size</th>
+                    <th width="100px">Color</th>
+                    <th width="100px" class="txt-right">Price</th>
+                    <th width="150px" class="txt-center">Status</th>
+                    <th width="200px">Created At</th>
+                    <th width="150px" class="txt-center">Action</th>
+                </thead>
+                <tbody v-if="!isLoading">
+                    <tr v-for="(order, ordersIndex) in orders" :key="order._id">
+                        <td class="txt-center">{{ordersIndex+1}}</td>
+                        <td class="txt-center">
+                            <img :src="order.images && order.images[0] ? order.images[0] : require('@/assets/images/default.jpeg')" style="height:56px" />
+                        </td>
+                        <td>
+                            <p class="mb0"><b>{{order.name}}</b></p>
+                            <span class="font12 txt-secondary">Description: {{order.description}}</span>
+                        </td>
+                        <td>{{order.qty}}</td>
+                        <td>{{order.size}}</td>
+                        <td>{{order.color}}</td>
+                        <td class="txt-right">{{$helper.formatPrice(order.price)}}</td>
+                        <td class="txt-center">
+                            <button class="btn btn-info txt-capitalize pv3 ph12">{{order.status}}</button>
+                        </td>
+                        <td>{{order.createdAt | moment("DD-MM-YYYY HH:MM:SS A")}}</td>
+                        <td class="txt-center">
+                            <button @click="detail = order" class="btn btn-success pv3 ph12">View Tracking</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-if="isLoading" class="row p50 txt-center">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <Timeline v-if="detail._id" :detail="detail"></Timeline>
+</div>
