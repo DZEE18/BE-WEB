@@ -1,28 +1,24 @@
-<div class="pagination">
-    <div class="go-left">
-        <small>Show : {{1*page}} to {{total < (page*limit) ? total : (page*limit)}} of {{total}}</small>
-      </div>
-    <div class="btn-responsive" style="margin-left: auto;">
-        <div>
-            <span class="h30 pt5">Go to</span>
-            <span class="mb0 text-14" title="enter go to page">
-                <input type="number" min="1" v-model="inputPage" v-on:keyup.enter="goTo(Number(inputPage))" class="h30"
-                    style="padding: 0px; outline: none;width: 50px;" />
-            </span>
+<div class="row p12">
+    <div class="col-6">
+        <div class="go-left">
+            <span class="go-left pt3 pr6">Show records: </span>
+            <select @change="changePageSize" v-model="pagination.size" class="input h30 go-left" style="width: 100px;padding: 3px">
+                <option v-for="(size,sizeIndex) in sizes" :key="size.val">
+                    {{size.label}}
+                </option>
+            </select>
+            <!-- <span class="go-left pv6 ph6">Total records : {{pagination.length}}</span> -->
         </div>
-        <div>
-            <span @click="goTo(Number(page)-1)" title="Previous" style="background: black;padding: 5px 12px;border-radius: 4px;color:white;margin-right: 3px;cursor: pointer;">
-                &laquo;
-            </span>
-
-            <span class="h30 mb0 pt6 text-14">
-                Page {{page}} of {{pagination}}
-            </span>
-
-            <span @click="goTo(Number(page)+1)" title="Next"
-                style="background: black;padding: 5px 12px;border-radius: 4px;color:white;margin-right: 3px;cursor: pointer;">
-                &raquo;
-            </span>
+    </div>
+    <div class="col-6">
+        <div class="go-right">
+            <button @click="goTo(Number(pagination.page)-1)" title="Previous" class="btn btn-info"><i class="fa fa-angle-left"></i></button>
+            <span class="ph12">Page {{pagination.page}} of {{pagination.totalPage}}</span>
+            <button @click="goTo(Number(pagination.page)+1)" title="Next" class="btn btn-info"><i class="fa fa-angle-right"></i></button>
+        </div>
+        <div class="mh12 go-right">
+            <span class="go-left pt3 ph6">Go to</span>
+            <input type="number" min="1" v-model="inputPage" v-on:keyup.enter="goTo(Number(inputPage))" class="input h30 p3 go-left" style="width: 100px;padding: 3px" />
         </div>
     </div>
 </div>

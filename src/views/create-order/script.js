@@ -23,13 +23,23 @@ export default {
     components: {
         VueTelInput
     },
+    beforeCreate(){
+        
+    },
     created() {
+        this.checkUserRole()
         this.getUser()
     },
     mounted() {
 
     },
     methods: {
+        checkUserRole(){
+            let user = this.$cookies.get('user')
+            if(user.role == 'admin'){
+                this.$router.push({name: 'admin'})
+            }
+        },
         getUser(){
             let user = this.$cookies.get('user')
             this.user = user

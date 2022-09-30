@@ -26,4 +26,26 @@ ProductService.getProducts = async function (body,params) {
         })
 };
 
+ProductService.updateProduct = async function (body) {
+    return await axios.put(ApiContant.product,
+        body,
+        Service.headers())
+        .then((response) => {
+            return Service.validateError(response);
+        }).catch(function (error) {
+            return Service.validateError(error.response);
+        })
+};
+
+ProductService.updateStatus = async function (body) {
+    return await axios.put(ApiContant.productUpdateStatus,
+        body,
+        Service.headers())
+        .then((response) => {
+            return Service.validateError(response);
+        }).catch(function (error) {
+            return Service.validateError(error.response);
+        })
+};
+
 export default ProductService;

@@ -1,0 +1,51 @@
+<div class="row p6">
+    <div class="row">
+        <p class="font20 go-left"><b>Customers</b></p>
+    </div>
+    <table class="table">
+        <thead style="border-bottom: 1px solid #ddd">
+            <th width="70px" class="txt-center">Profile</th>
+            <th>Name</th>
+            <th width="100px">Gender</th>
+            <th width="100px">Phone</th>
+            <th width="100px">Email</th>
+            <th width="100px">Role</th>
+            <th width="100px" class="txt-center">Status</th>
+            <th width="100px" class="txt-center">Verified</th>
+            <th width="170px">Created At</th>
+            <th min-width="150px" class="txt-center">Action</th>
+        </thead>
+        <tbody v-if="!isFetching">
+            <tr v-for="(customer, customerIndex) in customers" :key="customer._id">
+                <td class="txt-center">
+                    <img :src="customer.profilePic ? customer.profilePic : require('@/assets/images/default.jpeg')" style="height:56px" />
+                </td>
+                <td>
+                   <p class="mb0">{{customer.firstname}} {{customer.lastname}}</p>
+                </td>
+                <td class="txt-capitalize">{{customer.gender}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.email}}</td>
+                <td class="txt-capitalize">{{customer.role}}</td>
+                <td class="txt-center">
+                   {{customer.status}}
+                </td>
+                <td class="txt-center">
+                    {{customer.accountVerify}}
+                 </td>
+                <td>{{customer.createdAt | moment("DD-MM-YYYY HH:MM:SSA")}}</td>
+                <td class="txt-center">
+                    <button class="btn btn-info btn-xs pv3 ph12 mr3"><i class="fa fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <Pagination v-if="!isFetching && customers[0]" :pagination="pagination" @changePageSize="changePageSize">
+    </Pagination>
+    <div v-if="!isFetching && !customers[0]" class="row p50 txt-center">
+        No Customer
+    </div>
+    <div v-if="isFetching" class="row p50 txt-center">
+        Loading...
+    </div>
+</div>

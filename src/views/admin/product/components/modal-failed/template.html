@@ -1,0 +1,23 @@
+<div v-if="product._id" class="overlay">
+    <div class="overlay">
+        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
+                <span class="font18">Confirm Verified</span>
+                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+            </div>
+            <div class="row p16">
+                <label for="price">Price</label>
+                <input v-model="body.price" type="number" class="input" />
+            </div>
+            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+                <div v-if="!isUpdating" class="row">
+                    <button @click="onClose" class="btn btn-default btn-sm mr12">Close</button>
+                    <button @click="onUpdate" class="btn btn-info btn-sm mr12">Save</button>
+                </div>
+                <div v-else class="row">
+                    <button class="btn btn-info btn-sm mr12">Loading...</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -54,10 +54,10 @@ Helper.toCapitalize = function(string) {
 
 Helper.customPagination = function(data) {
     return {
-        totalPage: data.totalPage,
-        length: data.length,
+        totalPage: data.total_num_page,
+        length: data.total_items,
         page: data.page,
-        size: data.size
+        size: data.limit
     }
 }
 

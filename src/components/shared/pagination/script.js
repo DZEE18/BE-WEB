@@ -1,92 +1,49 @@
 export default {
   name: 'pagination',
   props: {
-    pagination: Number,
-    total: Number,
-    page: Number,
-    limit: Number,
-    method: {
-      type: Function
-    }
+      pagination: Object,
+      method: {
+          type: Function
+      }
   },
   data() {
-    return {
-      inputPage: null,
-    }
+      return {
+          inputPage: null,
+          sizes: [
+              { val: 5, label: 5 },
+              { val: 10, label: 10 },
+              { val: 25, label: 25 },
+              { val: 50, label: 50 },
+              { val: 100, label: 100 }
+          ],
+      }
   },
-
   components: {
 
   },
   created() {
-    this.setPageAndLimit()
+
   },
   watch: {
-    '$route.fullPath': function () {
-      this.setPageAndLimit()
-    }
+      '$route.fullPath': function() {
+
+      }
   },
   computed: {
-    paging: function (total) {
-      if (total > 10) {
-        return Math.ceil(total / 10)
-      }
-      return 1
-    }
+
   },
   methods: {
-    setPageAndLimit() {
-      var queryPage = this.$root.$route.query.page
-      var queryLimit = this.$root.$route.query.limit
-      if (queryPage != undefined) this.page = queryPage
-      if (queryLimit != undefined) this.limit = queryLimit
-    },
+      async goTo(page) {
+          if (page <= this.pagination.totalPage) {
+              if (page >= 1) { this.pagination.page = page } else { this.pagination.page = this.pagination.totalPage }
+          } else { this.pagination.page = 1 }
+          const query = Object.assign({}, this.$route.query);
+          query.page = this.pagination.page;
+          await this.$router.push({ query });
+      },
 
-    BackPage(type) {
-      this.select.menu = type;
-      if (this.pagination.page == 1) {
-        this.pagination.page = this.pagination;
-      } else {
-        this.pagination.page--;
+      async changePageSize() {
+          this.$emit("changePageSize")
       }
-
-      if (this.$route.query.id) {
-        this.$router.push({
-          path: this.$route.path,
-          query: {
-            page: this.pagination.page,
-            limit: this.pagination.limit,
-            id: this.pagination.id
-          }
-        });
-        this.method(this.pagination.page, this.pagination.id);
-      } else {
-        this.$router.push({
-          path: this.$route.path,
-          query: {
-            page: this.pagination.page,
-            limit: this.pagination.limit
-          }
-        });
-        this.method(this.pagination.page);
-      }
-    },
-
-    goTo(page) {
-      if (this.page < this.pagination) {
-        if (page >= 1) {
-          this.page = page
-        }
-      }
-      else {
-        this.page = 1
-      }
-      this.$root.$router.push({
-        query: Object.assign({}, this.$route.query, {
-          page: this.page
-        })
-      })
-    }
-
   }
 }

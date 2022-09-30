@@ -1,0 +1,47 @@
+<div class="row">
+    <table style="width:100%">
+        <thead style="border-bottom: 1px solid #ddd">
+            <th width="100px" class="txt-center">Image</th>
+            <th>Item</th>
+            <th width="100px">Quantity</th>
+            <th width="100px">Size</th>
+            <th width="100px">Color</th>
+            <th width="100px" class="txt-right">Price</th>
+            <th width="150px" class="txt-center">Status</th>
+            <th width="200px">Created At</th>
+            <th width="100px" class="txt-center">Action</th>
+        </thead>
+        <tbody>
+            <tr v-for="(product, productIndex) in products" :key="product._id">
+                <td class="txt-center">
+                    <img :src="product.images && product.images[0] ? product.images[0] : require('@/assets/images/default.jpeg')" style="height:56px" />
+                </td>
+                <td>
+                    <p class="mb0"><b>{{product.name}}</b></p>
+                    <span class="font12 txt-secondary">Description: {{product.description}}</span>
+                </td>
+                <td>{{product.qty}}</td>
+                <td>{{product.size}}</td>
+                <td>{{product.color}}</td>
+                <td class="txt-right">{{$helper.formatPrice(product.price)}}</td>
+                <td class="txt-center txt-capitalize">
+                    {{product.status}}
+                </td>
+                <td>{{product.createdAt | moment("DD-MM-YYYY HH:MM:SS A")}}</td>
+                <td class="txt-center">
+                    <button @click="detail = product" class="btn btn-info btn-xs pv3 ph12 mr6">Detail</button>
+                    <button @click="showModalTimeline(product)" class="btn btn-info btn-xs pv3 ph12">Timeline</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div v-if="!isFetching && !products[0]" class="row p50 txt-center">
+        No Product
+    </div>
+    <div v-if="isFetching" class="row p50 txt-center">
+        Loading...
+    </div>
+
+    <Detail v-if="detail" :product="detail" @onClose="detail = ''"></Detail>
+    <Timeline v-if="detail && modalTimeline" :detail="detail" @onClose="closeModal"></Timeline>
+</div>

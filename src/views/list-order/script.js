@@ -1,42 +1,55 @@
-import ProductService from './../../utils/services/ProductService'
 import MainService from "./../../utils/services/MainService"
-import Timeline from "./components/timeline"
+// import Timeline from "./components/timeline"
+import Cart from "./components/cart"
+import ProductRequested from "./components/product-requested"
+import Verified from "./components/verified"
+import Payment from "./components/payment"
+import Process from "./components/process"
+import Completed from "./components/completed"
+import Failed from "./components/failed"
 
 export default {
     name: "list-order",
     data() {
         return {
-            isLoading: true,
-            orders: [],
-            detail: {}
+            orderType: "cart", //cart, requestOrder
         }
     },
     components: {
-        Timeline
+        // Timeline,
+        Cart,
+        ProductRequested,
+        Verified,
+        Payment,
+        Process,
+        Completed,
+        Failed
     },
     created() {
-        this.getProducts()
+        this.checkUserRole()
+        this.onCheckOrderType()
     },
-    methods: {
-        getProducts() {
-            this.isLoading = true
-            let body = {}
-            let params = ""
-            ProductService.getProducts(body,params).then((response) => {
-                this.isLoading = false
-                if(response.status === 1){
-                    this.orders = response.data.records
-                }else{
-                    this.$toast.error(response.message.description);
-                }
-            })
+    watch: {
+        "$route.fullPath": function() {
+            this.onCheckOrderType()
         },
-
-        onLogout(){
-            MainService.logout();
-        }
     },
     mounted() {
 
+    },
+    methods: {
+        checkUserRole(){
+            let user = this.$cookies.get('user')
+            if(user.role == 'admin'){
+                this.$router.push({name: 'admin'})
+            }
+        },
+
+        onCheckOrderType(){
+            this.orderType = this.$route.query.orderType ? this.$route.query.orderType : "cart"
+        },
+        onLogout(){
+            MainService.logout();
+        }
     }
 }

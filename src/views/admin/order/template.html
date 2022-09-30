@@ -1,0 +1,49 @@
+<div class="row p6">
+    <div class="row">
+        <p class="font20 go-left"><b>Orders</b></p>
+    </div>
+    <table class="table">
+        <thead style="border-bottom: 1px solid #ddd">
+            <th width="50px" class="txt-center">
+                <!-- <input type="checkbox" /> -->
+            </th>
+            <th>Customer</th>
+            <th class="txt-center">Number of Product</th>
+            <th width="100px">Quantity</th>
+            <th width="100px" class="txt-right">Price</th>
+            <th width="150px" class="txt-center">Status</th>
+            <th width="200px">Created At</th>
+            <th width="170px" class="txt-center">Action</th>
+        </thead>
+        <tbody v-if="!isFetching">
+            <tr v-for="(order, ordersIndex) in orders" :key="order._id">
+                <td class="txt-center">
+                    <input :checked="onCheckProductId(order._id)" @change="onSelectProduct(order._id)" type="checkbox" />
+                </td>
+                <td>
+                    <p class="mb0"><b>{{order.customer.fullname}}</b></p>
+                </td>
+                <td class="txt-center">{{order.itemList.length}}</td>
+                <td>{{order.qty}}</td>
+                <td class="txt-right">{{$helper.formatPrice(order.price)}}</td>
+                <td class="txt-center">
+                    <button class="btn btn-info txt-capitalize pv3 ph12">{{order.status}}</button>
+                </td>
+                <td>{{order.createdAt | moment("DD-MM-YYYY HH:MM:SS A")}}</td>
+                <td class="txt-center">
+                    <button @click="detail = order" class="btn btn-success pv3 ph12 mr3">Detail</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <Pagination v-if="pagination.totalPage > 0" :pagination="pagination" @changePageSize="changePageSize">
+    </Pagination>
+    <div v-if="!isFetching && !orders[0]" class="row p50 txt-center">
+        No Product
+    </div>
+    <div v-if="isFetching" class="row p50 txt-center">
+        Loading...
+    </div>
+
+    <ModalDetail v-if="detail && !modalStatus" :product="detail" @onClose="onClose"></ModalDetail>
+</div>

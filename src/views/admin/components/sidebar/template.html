@@ -1,0 +1,38 @@
+<div class="sidebar-container" style="overflow-y: auto;">
+    <p class="txt-center font20 p10 mb0">BuyEasier</p>
+    <hr class="m0"/>
+    <div class="row mt12">
+        <div class="row">
+            <a class="menu-item-active">Dashboard</a>
+        </div>
+        <div class="row">
+            <router-link :to="{name: 'admin-customer'}" class="menu-item">Customer</router-link>
+        </div>
+        <div class="row">
+            <a class="menu-item">Product</a>
+            <div class="row pl24">
+                <router-link :to="{name: 'admin-product', query:{type : 'all'}}" class="menu-item">All</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'requestOrder'}}" class="menu-item">Order Requested</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'verified'}}" class="menu-item">Verified</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'payment'}}" class="menu-item">Payment</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'paymentconfirm'}}" class="menu-item">Confimed Payment</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'process'}}" class="menu-item">Process</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'warehouse'}}" class="menu-item">Warehouse</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'arrivepp'}}" class="menu-item">Arrived PP</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'scanin'}}" class="menu-item">Scan In</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'deliver'}}" class="menu-item">Deliver</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'completed'}}" class="menu-item">Completed</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'failed'}}" class="menu-item">Failed</router-link>
+            </div>
+        </div>
+        <div class="row">
+            <router-link :to="{name: 'admin-order'}" class="menu-item">Order</router-link>
+        </div>
+        <div class="row">
+            <router-link :to="{name: 'admin-refund'}" class="menu-item">Refund</router-link>
+        </div>
+        <div class="row">
+            <a class="menu-item">Delivery</a>
+        </div>
+    </div>
+</div>

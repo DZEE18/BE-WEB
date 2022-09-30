@@ -1,18 +1,18 @@
-<div v-if="detail" style="width: 100%;height: 100%;background: rgba(0,0,0,.5);position: fixed;top:0;left:0;padding: 24px 100px;">
+<div v-if="detail" style="width: 100%;height: 100%;background: rgba(0,0,0,.5);position: fixed;top:0;left:0;padding: 24px 20%;z-index: 99">
     <div class="row" style="width: 100%;height:100%;background:#fff;border-radius: 4px;overflow-y: auto;">
         <div class="row txt-center" style="background:#343a40;padding: 20px 16px;color:white;font-size:20px;text-transform: uppercase;position: sticky;top:0;z-index: 999;">
             Tracking order No - {{detail._id}}
-            <i @click="detail = ''" class="fa fa-times pt6 ph6 pointer go-right"></i>
+            <i @click="onClose" class="fa fa-times pt6 ph6 pointer go-right"></i>
         </div>
-        <div class="row txt-center pv24 ph100" style="display:block">
-            <div class="item-timeline">
+        <div class="row txt-center pv24 " style="display:block">
+            <!-- <div class="item-timeline">
                 <div :class="detail.timeLine.checkoutAt? 'timeline-line-active' : 'timeline-line' "></div>
                 <div :class="detail.timeLine.checkoutAt? 'timeline-icon-active' : 'timeline-icon'">
                     <img :src="require('@/assets/icons/ic-checkout.png')" class="ic-timeline" />
                 </div>
                 <p class="mb0">Checkout</p>
                 <p class="font12 mb0">{{detail.timeLine.checkoutAt | moment("DD-MM-YYYY HH:MM:SS A") || `N/A`}}</p>
-            </div>
+            </div> -->
             <div class="item-timeline">
                 <div :class="detail.timeLine.paymentconfirmAt? 'timeline-line-active' : 'timeline-line' "></div>
                 <div :class="detail.timeLine.paymentconfirmAt? 'timeline-icon-active' : 'timeline-icon'">
@@ -47,59 +47,14 @@
             </div>
         </div>
 
-        <div class="row ph100 mb20">
-            <div class="col-6">
-                <div class="row mv8">
-                    <div class="col-5"><b>Order ID</b></div>
-                    <div class="col-7">: {{detail._id}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Original Order No</b></div>
-                    <div class="col-7">: {{detail.originalOrderNo}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>URL</b></div>
-                    <div class="col-7">: <a :href="detail.url" target="_blank" class="txt-info">Click to browse</a></div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Name</b></div>
-                    <div class="col-7">: {{detail.name}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Size</b></div>
-                    <div class="col-7">: {{detail.size}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Color</b></div>
-                    <div class="col-7">: {{detail.color}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Quantity</b></div>
-                    <div class="col-7">: {{detail.qty}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Price</b></div>
-                    <div class="col-7">: {{$helper.formatPrice(detail.price)}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Original Price</b></div>
-                    <div class="col-7">: {{$helper.formatPrice(detail.originalPrice)}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Status</b></div>
-                    <div class="col-7">: {{detail.status}}</div>
-                </div>
-                <div class="row mv8">
-                    <div class="col-5"><b>Recent TimeLine</b></div>
-                    <div class="col-7">: {{detail.recentTimeLine | moment("DD-MM-YYYY HH:MM:SS A")}}</div>
-                </div>
-            </div>
-            <div class="col-6 mt7">
+        <div class="row mb20">
+            <div class="col-1"></div>
+            <div class="col-10 mt7">
                 <p><b>Timeline</b></p>
                 <table class="table">
                     <tbody>
                         <tr v-for="(value, name, index) in detail.timeLine">
-                            <td><b>{{name}}</b></td>
+                            <td class="txt-capitalize"><b>{{name}}</b></td>
                             <td>: {{value | moment("DD-MM-YYYY HH:MM:SS A") || `N/A`}}</td>
                         </tr>
                     </tbody>

@@ -1,0 +1,58 @@
+<div v-if="product._id" class="overlay">
+    <div class="overlay">
+        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
+                <span class="font18">View Detail</span>
+                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+            </div>
+            <div class="row p16">
+                <div class="row mb16">
+                    <table style="width: 100%">
+                        <thead style="border-bottom: 1px solid #ddd">
+                            <th width="50px" class="txt-center"><small>Image</small></th>
+                            <th><small>Product</small></th>
+                            <th><small>Qty</small></th>
+                            <th><small>Size</small></th>
+                            <th><small>Color</small></th>
+                            <th class="txt-right"><small>Price</small></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="txt-center">
+                                    <img :src="product.images && product.images[0] ? product.images[0] : require('@/assets/images/default.jpeg')" style="height:36px" />
+                                </td>
+                                <td>
+                                    <small>{{product.name}}</small>
+                                </td>
+                                <td><small>{{product.qty}}</small></td>
+                                <td><small>{{product.size}}</small></td>
+                                <td><small>{{product.color}}</small></td>
+                                <td class="txt-right"><small>{{$helper.formatPrice(product.price)}}</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
+                <p class="item-info">Shipping Price : <span class="go-right">$0.00</span></p>
+                <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
+                <p class="item-info">Created at : <span class="go-right">{{product.createdAt | moment("DD-MM-YYYY HH:MM:SS A")}}</span></p>
+                <p v-if="product.description" class="item-info">
+                   <span>Description : </span>
+                   <span class="go-right">{{product.description}}</span>
+                </p>
+                <div v-if="product.payment" class="row mt16">
+                    <p class="mb0">Payment Attachment</p>
+                    <img v-if="product.payment.imageUrl" :src="product.payment.imageUrl" class="row img-cover" />
+                    <div v-else class="row pv24 txt-center" style="background: #ddd;">
+                        No Attachment
+                    </div>
+                </div>
+            </div>
+            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+                <div class="row">
+                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
