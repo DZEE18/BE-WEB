@@ -1,8 +1,11 @@
 export default {
-    name: "admin-sidebar",
+    name: "modal-detail",
+    props: {
+       delivery: Object
+    },
     data() {
         return {
-            dropdownProduct: false
+
         }
     },
     components: {
@@ -15,6 +18,8 @@ export default {
 
     },
     methods: {
-        
+        onClose(){
+            this.$emit('onClose')
+        }
     }
 }

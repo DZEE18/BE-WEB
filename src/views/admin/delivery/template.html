@@ -1,0 +1,45 @@
+<div class="row p6">
+    <div class="row">
+        <p class="font20 go-left"><b>Deliveries</b></p>
+    </div>
+    <table class="table">
+        <thead style="border-bottom: 1px solid #ddd">
+            <th>Customer</th>
+            <th>Delivery</th>
+            <th>Total Product</th>
+            <th width="100px" class="txt-center">Status</th>
+            <th width="170px">Created At</th>
+            <th min-width="150px" class="txt-center">Action</th>
+        </thead>
+        <tbody v-if="!isFetching">
+            <tr v-for="(delivery, deliveryIndex) in deliveries" :key="delivery._id">
+                <td>
+                    <p class="m0">{{delivery.customer.fullname}}</p>
+                    <small class="txt-secondary">{{delivery.customer.phone}}</small>
+                </td>
+                <td>
+                    <p class="m0">{{delivery.driver.fullname}}</p>
+                    <small class="txt-secondary">{{delivery.driver.phone}}</small>
+                </td>
+                <td>{{delivery.itemList.length}}</td>
+                <td class="txt-center txt-capitalize">
+                   {{delivery.status}}
+                </td>
+                <td>{{delivery.createdAt | moment("DD-MM-YYYY HH:MM:SSA")}}</td>
+                <td class="txt-center">
+                    <button @click="detail = delivery" class="btn btn-info btn-xs pv3 ph12 mr3"><i class="fa fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <Pagination v-if="!isFetching && deliveries[0]" :pagination="pagination" @changePageSize="changePageSize">
+    </Pagination>
+    <div v-if="!isFetching && !deliveries[0]" class="row p50 txt-center">
+        No Product
+    </div>
+    <div v-if="isFetching" class="row p50 txt-center">
+        Loading...
+    </div>
+
+    <ModalDetail v-if="detail" :delivery="detail" @onClose="onClose"></ModalDetail>
+</div>

@@ -14,6 +14,8 @@ const ApiContant = {
     payment: baseUrl + v1 + '/payment',
     queryPayment: baseUrl + v1 + '/payment/query',
     upload : baseUrl + v1 + '/service/upload',
+    delivery: baseUrl + v1 + '/delivery',
+    queryDelivery: baseUrl + v1 + '/delivery/query',
 
     refund: baseUrl + v1 + '/refund',
     queryRefund: baseUrl + v1 + '/refund/query',

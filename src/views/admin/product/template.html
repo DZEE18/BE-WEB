@@ -2,8 +2,8 @@
     <div class="row">
         <p class="font20 go-left"><b>Products</b></p>
         <div v-if="!isUpdating">
-            <button @click="onUpdateProductStatus('failed')" class="btn btn-danger btn-sm go-right ml6">Failed</button>
-            <button v-if="checkCheckbox(checkStatus($route.query.type).val) && !isFetching"
+            <button v-if="!$route.query.type || $route.query.type != 'all' && $route.query.type != 'completed'" @click="onUpdateProductStatus('failed')" class="btn btn-danger btn-sm go-right ml6">Failed</button>
+            <button v-if="checkCheckbox(checkStatus($route.query.type).val) && $route.query.type != 'completed' && !isFetching"
                 @click="onUpdateProductStatus(checkStatus($route.query.type).val)" 
                 class="btn btn-success btn-sm go-right">{{checkStatus($route.query.type).label}}</button>
         </div>

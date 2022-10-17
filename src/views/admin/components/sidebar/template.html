@@ -1,38 +1,38 @@
 <div class="sidebar-container" style="overflow-y: auto;">
     <p class="txt-center font20 p10 mb0">BuyEasier</p>
     <hr class="m0"/>
-    <div class="row mt12">
+    <div class="row mt12 mb50">
         <div class="row">
-            <a class="menu-item-active">Dashboard</a>
+            <a class="menu-item">Dashboard</a>
         </div>
         <div class="row">
-            <router-link :to="{name: 'admin-customer'}" class="menu-item">Customer</router-link>
+            <router-link :to="{name: 'admin-customer'}" :class="$route.name == 'admin-customer' ? 'menu-item-active' : 'menu-item'">Customer</router-link>
         </div>
         <div class="row">
-            <a class="menu-item">Product</a>
-            <div class="row pl24">
-                <router-link :to="{name: 'admin-product', query:{type : 'all'}}" class="menu-item">All</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'requestOrder'}}" class="menu-item">Order Requested</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'verified'}}" class="menu-item">Verified</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'payment'}}" class="menu-item">Payment</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'paymentconfirm'}}" class="menu-item">Confimed Payment</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'process'}}" class="menu-item">Process</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'warehouse'}}" class="menu-item">Warehouse</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'arrivepp'}}" class="menu-item">Arrived PP</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'scanin'}}" class="menu-item">Scan In</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'deliver'}}" class="menu-item">Deliver</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'completed'}}" class="menu-item">Completed</router-link>
-                <router-link :to="{name: 'admin-product', query:{type : 'failed'}}" class="menu-item">Failed</router-link>
+            <a @click="dropdownProduct = !dropdownProduct" :class="$route.name == 'admin-product' ? 'menu-item-active' : 'menu-item'">Product <i class="fa fa-angle-down go-right p3"></i></a>
+            <div v-if="dropdownProduct" class="row pl24">
+                <router-link :to="{name: 'admin-product', query:{type : 'all'}}" :class="$route.name == 'admin-product' && $route.query.type == 'all' ? 'menu-item-active' : 'menu-item'">All</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'requestOrder'}}" :class="$route.name == 'admin-product' && $route.query.type == 'requestOrder' ? 'menu-item-active' : 'menu-item'">Order Requested</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'verified'}}" :class="$route.name == 'admin-product' && $route.query.type == 'verified' ? 'menu-item-active' : 'menu-item'">Verified</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'payment'}}" :class="$route.name == 'admin-product' && $route.query.type == 'payment' ? 'menu-item-active' : 'menu-item'">Payment</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'paymentconfirm'}}" :class="$route.name == 'admin-product' && $route.query.type == 'paymentconfirm' ? 'menu-item-active' : 'menu-item'">Confimed Payment</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'process'}}" :class="$route.name == 'admin-product' && $route.query.type == 'process' ? 'menu-item-active' : 'menu-item'">Process</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'warehouse'}}" :class="$route.name == 'admin-product' && $route.query.type == 'warehouse' ? 'menu-item-active' : 'menu-item'">Warehouse</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'arrivepp'}}" :class="$route.name == 'admin-product' && $route.query.type == 'arrivepp' ? 'menu-item-active' : 'menu-item'">Arrived PP</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'scanin'}}" :class="$route.name == 'admin-product' && $route.query.type == 'scanin' ? 'menu-item-active' : 'menu-item'">Scan In</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'deliver'}}" :class="$route.name == 'admin-product' && $route.query.type == 'deliver' ? 'menu-item-active' : 'menu-item'">Deliver</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'completed'}}" :class="$route.name == 'admin-product' && $route.query.type == 'completed' ? 'menu-item-active' : 'menu-item'">Completed</router-link>
+                <router-link :to="{name: 'admin-product', query:{type : 'failed'}}" :class="$route.name == 'admin-product' && $route.query.type == 'failed' ? 'menu-item-active' : 'menu-item'">Failed</router-link>
             </div>
         </div>
         <div class="row">
-            <router-link :to="{name: 'admin-order'}" class="menu-item">Order</router-link>
+            <router-link :to="{name: 'admin-order'}" :class="$route.name == 'admin-order' ? 'menu-item-active' : 'menu-item'">Order</router-link>
         </div>
         <div class="row">
-            <router-link :to="{name: 'admin-refund'}" class="menu-item">Refund</router-link>
+            <router-link :to="{name: 'admin-refund'}" :class="$route.name == 'admin-refund' ? 'menu-item-active' : 'menu-item'">Refund</router-link>
         </div>
         <div class="row">
-            <a class="menu-item">Delivery</a>
+            <router-link :to="{name: 'admin-delivery'}" :class="$route.name == 'admin-delivery' ? 'menu-item-active' : 'menu-item'">Delivery</router-link>
         </div>
     </div>
 </div>

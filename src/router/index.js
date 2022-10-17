@@ -10,6 +10,7 @@ import AdminOrder from './../views/admin/order'
 import AdminProduct from './../views/admin/product'
 import AdminRefund from './../views/admin/refund'
 import AdminCustomer from './../views/admin/customer'
+import AdminDelivery from './../views/admin/delivery'
 
 const needLogin = (to, from, next) => {
     if (!Vue.$cookies.get('user')) {
@@ -43,6 +44,7 @@ const routes = [
         { path: 'product', name: 'admin-product', component: AdminProduct, beforeEnter: needLogin },
         { path: 'refund', name: 'admin-refund', component: AdminRefund, beforeEnter: needLogin },
         { path: 'customer', name: 'admin-customer', component: AdminCustomer, beforeEnter: needLogin },
+        { path: 'delivery', name: 'admin-delivery', component: AdminDelivery, beforeEnter: needLogin },
     ]},
 ]
 
