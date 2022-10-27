@@ -1,18 +1,14 @@
 import Helper from "../../../utils/Helper"
 import Pagination from "./../../../components/shared/pagination"
-import UserService from "../../../utils/services/UserService"
-import ModalDetail from "./components/modal-detail"
-import ModalCreate from "./components/modal-create"
-import ModalUpdate from "./components/modal-update"
+import PaymentService from "../../../utils/services/PaymentService"
+import ModalPaymentDetail from "./components/modal-payment-detail"
 
 export default {
-    name: "admin-customer",
+    name: "admin-payment",
     data() {
         return {
             isFetching: true,
-            isModalCreate: false,
-            updateIndex: -1,
-            customers: [],
+            payments: [],
             detail: {},
             pagination: {
                 page: 1,
@@ -24,9 +20,7 @@ export default {
     },
     components: {
         Pagination,
-        ModalDetail,
-        ModalCreate,
-        ModalUpdate
+        ModalPaymentDetail,
     },
     created() {
         this.onFetchData()
@@ -42,43 +36,30 @@ export default {
     methods: {
         onFetchData() {
             this.isFetching = true
+
             let queryPage = this.$route.query.page
             let querySize = this.$route.query.size
 
             if (queryPage) { this.pagination.page = parseInt(queryPage) }
             if (querySize) { this.pagination.size = parseInt(querySize) }
-            let params = "?page=" + this.pagination.page + "&limit=" + this.pagination.size
-            let body = {
-                role: "customer"
-            }
 
-            UserService.getUsers(body,params).then((response) => {
+            let params = "?page=" + this.pagination.page + "&limit=" + this.pagination.size
+
+            let body = ""
+
+            PaymentService.getPayments(body,params).then((response) => {
                 this.isFetching = false
                 if(response.status === 0){
-                    this.customers = []
+                    this.payments = []
                     return
                 }
-                this.customers = response.data.records
+                this.payments = response.data.records
                 this.pagination = Helper.customPagination(response.data)
             })
         },
 
-        onCreateSuccess(response){
-            this.customers.unshift(response)
-            this.isModalCreate = false
-            this.$toast.success("Create successfully!")
-        },
-
-        onUpdateSuccess(response){
-            this.customers[this.updateIndex] = response
-            this.updateIndex = -1
+        onClose(){
             this.detail = {}
-            this.$toast.success("Update successfully!")
-        },
-
-        showModalUpdate(customerIndex){
-            this.detail = this.customers[customerIndex]
-            this.updateIndex = customerIndex
         },
 
         async changePageSize() {

@@ -7,6 +7,7 @@ import ModalPayment from "./components/modal-payment"
 import ModalConfirmPayment from "./components/modal-confirmpayment"
 import ModalProcess from "./components/modal-process"
 import ModalTracking from "./components/modal-tracking"
+import ModalPaymentDetail from "./components/modal-payment-detail"
 
 export default {
     name: "admin-product",
@@ -19,6 +20,7 @@ export default {
             detail: {},
             updateIds: [],
             modalStatus: "",
+            productId: "",
             productStatus: [
                 {val: "requestOrder", label: "Request Order", isCheckbox: true},
                 {val: "verified", label: "Verified", isCheckbox: false},
@@ -52,7 +54,8 @@ export default {
         ModalPayment,
         ModalConfirmPayment,
         ModalProcess,
-        ModalTracking
+        ModalTracking,
+        ModalPaymentDetail
     },
     created() {
         this.onFetchData()

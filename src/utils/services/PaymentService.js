@@ -26,4 +26,24 @@ PaymentService.getPayments = async function (body,params) {
         })
 };
 
+PaymentService.getPaymentDetail = async function (paymentId) {
+    return await axios.get(ApiContant.payment+"/"+paymentId,
+        Service.headers())
+        .then((response) => {
+            return Service.validateError(response);
+        }).catch(function (error) {
+            return Service.validateError(error.response);
+        })
+};
+
+PaymentService.getPaymentByItemId = async function (itemId) {
+    return await axios.get(ApiContant.paymentByItemId+"/"+itemId,
+        Service.headers())
+        .then((response) => {
+            return Service.validateError(response);
+        }).catch(function (error) {
+            return Service.validateError(error.response);
+        })
+};
+
 export default PaymentService;

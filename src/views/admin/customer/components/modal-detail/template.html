@@ -1,4 +1,4 @@
-<div v-if="product._id" class="overlay">
+<div v-if="item._id" class="overlay">
     <div class="overlay">
         <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
             <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
@@ -6,45 +6,17 @@
                 <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
             </div>
             <div class="row p16">
-                <div class="row mb16">
-                    <table style="width: 100%">
-                        <thead style="border-bottom: 1px solid #ddd">
-                            <th width="50px" class="txt-center"><small>Image</small></th>
-                            <th><small>Product</small></th>
-                            <th><small>Qty</small></th>
-                            <th><small>Size</small></th>
-                            <th><small>Color</small></th>
-                            <th class="txt-right"><small>Price</small></th>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item,itemIndex) in product.itemList" :key="item._id">
-                                <td class="txt-center">
-                                    <img :src="item.images && item.images[0] ? item.images[0] : require('@/assets/images/default.jpeg')" style="height:36px" />
-                                </td>
-                                <td>
-                                    <small>{{item.name}}</small>
-                                </td>
-                                <td><small>{{item.qty}}</small></td>
-                                <td><small>{{item.size}}</small></td>
-                                <td><small>{{item.color}}</small></td>
-                                <td class="txt-right"><small>{{$helper.formatPrice(item.price)}}</small></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="row mb6">
+                    <img :src="item.profilePic ? item.profilePic : require('@/assets/images/default.jpeg')" class="w100 img-cover"/>
                 </div>
-                <p class="item-info">Order ID : <span class="go-right">{{product._id}}</span></p>
-                <p class="item-info">Quantity : <span class="go-right">{{product.qty}}</span></p>
-                <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
-                <p class="item-info">Shipping Price : <span class="go-right">{{$helper.formatPrice(product.shippingPrice)}}</span></p>
-                <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
-                <p class="item-info">Created at : <span class="go-right">{{product.createdAt}}</span></p>
-                <div v-if="product.payment" class="row mt16">
-                    <p class="mb0">Payment Attachment</p>
-                    <img v-if="product.payment.imageUrl" :src="product.payment.imageUrl" class="row img-cover" />
-                    <div v-else class="row pv24 txt-center" style="background: #ddd;">
-                        No Attachment
-                    </div>
-                </div>
+                <p class="item-info">Customer ID : <span class="go-right">{{item._id}}</span></p>
+                <p class="item-info">Fullname : <span class="go-right">{{item.firstname}} {{item.lastname}}</span></p>
+                <p class="item-info">Email : <span class="go-right">{{item.email}}</span></p>
+                <p class="item-info">Phone : <span class="go-right">{{item.phone}}</span></p>
+                <p class="item-info">Gender : <span class="go-right">{{item.gender}}</span></p>
+                <p class="item-info">Role : <span class="go-right">{{item.role}}</span></p>
+                <p class="item-info">Address : <span class="go-right">{{item.address}}</span></p>
+                <p class="item-info">Created at : <span class="go-right">{{item.createdAt}}</span></p>
             </div>
             <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">

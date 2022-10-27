@@ -12,6 +12,7 @@ const ApiContant = {
     groupOrder: baseUrl + v1 + '/grouporder',
     queryGroupOrder: baseUrl + v1 + '/grouporder/query',
     payment: baseUrl + v1 + '/payment',
+    paymentByItemId: baseUrl + v1 + '/payment/item',
     queryPayment: baseUrl + v1 + '/payment/query',
     upload : baseUrl + v1 + '/service/upload',
     delivery: baseUrl + v1 + '/delivery',

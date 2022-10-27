@@ -1,7 +1,7 @@
 export default {
     name: "modal-detail",
     props: {
-       product: Object
+       item: Object
     },
     data() {
         return {

@@ -1,0 +1,62 @@
+<div v-if="productId" class="overlay">
+    <div class="overlay">
+        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
+                <span class="font18">Payment Detail</span>
+                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+            </div>
+            <div class="row p16">
+                <div v-if="!isLoading" class="row">
+                    <div class="row mb16">
+                        <table style="width: 100%">
+                            <thead style="border-bottom: 1px solid #ddd">
+                                <th width="50px" class="txt-center"><small>Image</small></th>
+                                <th><small>Product</small></th>
+                                <th><small>Qty</small></th>
+                                <th><small>Size</small></th>
+                                <th><small>Color</small></th>
+                                <th class="txt-right"><small>Price</small></th>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(item, itemIndex) in product.itemList" :key="item._id">
+                                    <td class="txt-center">
+                                        <img :src="item.images && item.images[0] ? item.images[0] : require('@/assets/images/default.jpeg')" style="height:36px" />
+                                    </td>
+                                    <td>
+                                        <small>{{item.name}}</small>
+                                    </td>
+                                    <td><small>{{item.qty}}</small></td>
+                                    <td><small>{{item.size}}</small></td>
+                                    <td><small>{{item.color}}</small></td>
+                                    <td class="txt-right"><small>{{$helper.formatPrice(item.price)}}</small></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="item-info">Order ID : <span class="go-right">{{product._id}}</span></p>
+                    <p class="item-info">Customer : <span class="go-right">{{product.customer.fullname}}</span></p>
+                    <p class="item-info">Quantity : <span class="go-right">{{product.qty}}</span></p>
+                    <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
+                    <p class="item-info">Shipping Price : <span class="go-right">{{$helper.formatPrice(product.shippingPrice)}}</span></p>
+                    <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
+                    <p  v-if="product.payment" class="item-info">Payment Type : <span class="txt-capitalize go-right">{{product.payment.paymentType}}</span></p>
+                    <div v-if="product.payment" class="row mt16">
+                        <p class="mb0">Payment Attachment</p>
+                        <img v-if="product.payment.imageUrl" :src="product.payment.imageUrl" class="row img-cover" />
+                        <div v-else class="row pv24 txt-center" style="background: #ddd;">
+                            No Attachment
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="row pv50 txt-center">
+                    Loading...
+                </div>
+            </div>
+            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+                <div class="row">
+                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

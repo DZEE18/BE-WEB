@@ -1,0 +1,52 @@
+<div class="row p6">
+    <div class="row">
+        <p class="font20 go-left"><b>Deliveries</b></p>
+    </div>
+    <table class="table">
+        <thead style="border-bottom: 1px solid #ddd">
+            <th width="100px">Order ID</th>
+            <th>Display ID</th>
+            <th>Image</th>
+            <th>Customer</th>
+            <th>Payment Type</th>
+            <th>Total Paid</th>
+            <th>Type</th>
+            <th width="170px">Created At</th>
+            <th min-width="150px" class="txt-center">Action</th>
+        </thead>
+        <tbody v-if="!isFetching">
+            <tr v-for="(payment, paymentIndex) in payments" :key="payment._id">
+                <td>{{payment.orderId}}</td>
+                <td>{{payment.displayId}}</td>
+                <td>
+                    <img v-if="payment.imageUrl" :src="payment.imageUrl" width="40px" height="40px" />
+                </td>
+                <td>
+                    <p class="m0">{{payment.user.firstname}} {{payment.user.lastname}}</p>
+                    <small class="txt-secondary">{{payment.user.phone}}</small>
+                </td>
+                <td class="txt-capitalize">
+                    {{payment.paymentType}}
+                </td>
+                <td>{{$helper.formatPrice(payment.totalPaid)}}</td>
+                <td class="txt-capitalize">
+                   {{payment.type}}
+                </td>
+                <td>{{payment.paidAt | moment("DD-MM-YYYY HH:MM:SSA")}}</td>
+                <td class="txt-center">
+                    <button @click="detail = payment" class="btn btn-info btn-xs pv3 ph12 mr3"><i class="fa fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <Pagination v-if="!isFetching && payments[0]" :pagination="pagination" @changePageSize="changePageSize">
+    </Pagination>
+    <div v-if="!isFetching && !payments[0]" class="row p50 txt-center">
+        No Result
+    </div>
+    <div v-if="isFetching" class="row p50 txt-center">
+        Loading...
+    </div>
+
+    <ModalPaymentDetail v-if="detail._id" :productId="detail._id" @onClose="onClose"></ModalPaymentDetail>
+</div>

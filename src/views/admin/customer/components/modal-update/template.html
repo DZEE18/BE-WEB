@@ -1,0 +1,48 @@
+<div class="overlay">
+    <div class="overlay">
+        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
+                <span class="font18">Update Customer</span>
+                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+            </div>
+            <div class="row p16">
+                <div class="row">
+                    <div class="col-6 pr6">
+                        <label for="firstname">First name</label>
+                        <input v-model="body.firstname" type="text" placeholder="Enter firstname" class="input-info outline-success">
+                    </div>
+                    <div class="col-6 pl6">
+                        <label for="lastname">Last name</label>
+                        <input v-model="body.lastname" type="text" placeholder="Enter lastname" class="input-info outline-success">
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="email">Email</label>
+                    <input v-model="body.email" type="text" placeholder="Enter email" class="input-info outline-success">
+                </div>
+                <div class="row">
+                    <label for="phone">Phone</label>
+                    <input v-model="body.phone" type="number" placeholder="Enter phone" class="input-info outline-success">
+                </div>
+                <div class="row">
+                    <label for="gender">Gender</label>
+                    <select v-model="body.gender" class="input-info outline-success">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label for="address">Address</label>
+                    <input v-model="body.address" type="text" placeholder="Enter address" class="input-info outline-success">
+                </div>
+            </div>
+            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+                <div class="row">
+                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                    <button v-if="!isUpdating"  @click="onRegister" class="btn btn-success btn-md mr12">Update</button>
+                    <button v-else class="btn btn-success btn-md mr12">Loading...</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

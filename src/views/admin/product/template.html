@@ -47,6 +47,7 @@
                 <td>{{product.createdAt | moment("DD-MM-YYYY HH:MM:SSA")}}</td>
                 <td class="txt-center">
                     <button @click="detail = product" class="btn btn-info btn-xs pv3 ph12 mr3"><i class="fa fa-eye"></i></button>
+                    <button  v-if="$route.query.type && $route.query.type != 'all' && $route.query.type != 'requestOrder' && $route.query.type != 'verified'" @click="productId = product._id" class="btn btn-danger btn-xs pv3 ph12 mr3"><i class="fa fa-money"></i></button>
                     <button v-if="$route.query.type && $route.query.type != 'all' && checkTracking(product.status)" @click="showModalTracking(productIndex)" class="btn btn-warning btn-xs pv3 ph12 mr3"><i class="fa fa-edit"></i></button>
                     <button v-if="$route.query.type && $route.query.type != 'all' && !checkCheckbox(checkStatus($route.query.type).val)" 
                         @click="onUpdateProductTo(checkStatus(product.status).val, productIndex)" 
@@ -70,4 +71,5 @@
     <ModalConfirmPayment v-if="modalStatus == 'paymentconfirm' && detail" :product="detail" @onSuccess="onSuccess" @onClose="onClose"></ModalConfirmPayment>
     <ModalProcess v-if="modalStatus == 'process' && detail" :product="detail" @onSuccess="onSuccess" @onClose="onClose"></ModalProcess>
     <ModalTracking v-if="modalStatus == 'tracking' && detail" :product="detail" @onSuccess="onSuccess" @onClose="onClose"></ModalTracking>
+    <ModalPaymentDetail v-if="productId" :productId="productId" @onClose="productId = ''"></ModalPaymentDetail>
 </div>
