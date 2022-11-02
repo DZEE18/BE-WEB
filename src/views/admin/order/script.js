@@ -1,6 +1,5 @@
 import Helper from "../../../utils/Helper"
 import GroupOrderService from "../../../utils/services/GroupOrderService"
-// import Timeline from "./components/timeline"
 import Pagination from "./../../../components/shared/pagination"
 import ProductService from "../../../utils/services/ProductService"
 import ModalDetail from "./components/modal-detail"
@@ -28,7 +27,6 @@ export default {
     },
     components: {
         Pagination,
-        // Timeline,
         ModalDetail,
     },
     created() {

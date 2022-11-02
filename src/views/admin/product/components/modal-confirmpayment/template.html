@@ -1,13 +1,13 @@
 <div v-if="product._id" class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
-            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">Confirm Payment</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row p12" style="border-bottom: 1px solid #ddd">
+                <b class="font16">Confirm Payment</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
                 <div class="row mb16">
-                    <table style="width: 100%">
+                    <table class="table">
                         <thead style="border-bottom: 1px solid #ddd">
                             <th width="50px" class="txt-center"><small>Image</small></th>
                             <th><small>Product</small></th>
@@ -34,7 +34,7 @@
                 </div>
                 <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
                 <p class="item-info">Shipping Price : <span class="go-right">$0.00</span></p>
-                <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
+                <p class="item-info">Status : <span class="go-right txt-capitalize">{{product.status}}</span></p>
                 <p class="item-info">Created at : <span class="go-right">{{product.createdAt}}</span></p>
                 <div v-if="product.payment" class="row mt16">
                     <p class="mb0">Payment Attachment</p>
@@ -44,13 +44,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row pv12 txt-right" style="border-top: 1px solid #ddd;">
                 <div v-if="!isUpdating" class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
-                    <button @click="onUpdate" class="btn btn-info btn-md mr12">Save</button>
+                    <button @click="onClose" class="btn btn-default mr12">Close</button>
+                    <button @click="onUpdate" class="btn btn-info">Save</button>
                 </div>
                 <div v-else class="row">
-                    <button class="btn btn-info btn-md mr12">Loading...</button>
+                    <button class="btn btn-info">Loading...</button>
                 </div>
             </div>
         </div>

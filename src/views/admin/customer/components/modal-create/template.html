@@ -1,54 +1,54 @@
 <div class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
-            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">Create Customer</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row p12" style="border-bottom: 1px solid #ddd">
+                <b class="font16">Create Customer</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
-                <div class="row">
+                <div class="row mb6">
                     <div class="col-6 pr6">
-                        <label for="firstname">First name</label>
-                        <input v-model="body.firstname" type="text" placeholder="Enter firstname" class="input-info outline-success">
+                        <label for="firstname" class="font14"><b>First name</b></label>
+                        <input v-model="body.firstname" type="text" placeholder="Enter firstname" class="input">
                     </div>
                     <div class="col-6 pl6">
-                        <label for="lastname">Last name</label>
-                        <input v-model="body.lastname" type="text" placeholder="Enter lastname" class="input-info outline-success">
+                        <label for="lastname" class="font14"><b>Last name</b></label>
+                        <input v-model="body.lastname" type="text" placeholder="Enter lastname" class="input">
                     </div>
                 </div>
-                <div class="row">
-                    <label for="email">Email</label>
-                    <input v-model="body.email" type="text" placeholder="Enter email" class="input-info outline-success">
+                <div class="row mb6">
+                    <label for="email" class="font14"><b>Email</b></label>
+                    <input v-model="body.email" type="text" placeholder="Enter email" class="input">
                 </div>
-                <div class="row">
-                    <label for="phone">Phone</label>
-                    <input v-model="body.phone" type="number" placeholder="Enter phone" class="input-info outline-success">
+                <div class="row mb6">
+                    <label for="phone" class="font14"><b>Phone</b></label>
+                    <input v-model="body.phone" type="number" placeholder="Enter phone" class="input">
                 </div>
-                <div class="row">
-                    <label for="gender">Gender</label>
-                    <select v-model="body.gender" class="input-info outline-success">
+                <div class="row mb6">
+                    <label for="gender" class="font14"><b>Gender</b></label>
+                    <select v-model="body.gender" class="input">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
                 </div>
-                <div class="row">
-                    <label for="address">Address</label>
-                    <input v-model="body.address" type="text" placeholder="Enter address" class="input-info outline-success">
+                <div class="row mb6">
+                    <label for="address" class="font14"><b>Address</b></label>
+                    <input v-model="body.address" type="text" placeholder="Enter address" class="input">
                 </div>
-                <div class="row">
-                    <label for="psw">Password</label>
+                <div class="row mb6">
+                    <label for="psw" class="font14"><b>Password</b></label>
                     <div class="mb6" style="display: flex;align-items: center;position: relative;">
-                        <input v-model="body.password" :type="isShowPassword ? 'text' : 'password'" name="password" placeholder="Enter password" class="input-info outline-success">
-                        <i class="fas fa-eye show-icon pointer" v-if="isShowPassword" @click="isShowPassword = !isShowPassword"></i>
-                        <i class="fas fa-eye-slash show-icon pointer" v-else @click="isShowPassword = !isShowPassword"></i>
+                        <input v-model="body.password" :type="isShowPassword ? 'text' : 'password'" name="password" placeholder="Enter password" class="input">
+                        <i class="fa fa-eye show-icon pointer" v-if="isShowPassword" @click="isShowPassword = !isShowPassword"></i>
+                        <i class="fa fa-eye-slash show-icon pointer" v-else @click="isShowPassword = !isShowPassword"></i>
                     </div>
                 </div>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row pv12 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
-                    <button v-if="!isCreating"  @click="onRegister" class="btn btn-success btn-md mr12">Create</button>
-                    <button v-else class="btn btn-success btn-md mr12">Loading...</button>
+                    <button @click="onClose" class="btn btn-default mr12">Close</button>
+                    <button v-if="!isCreating"  @click="onRegister" class="btn btn-primary mr12">Save</button>
+                    <button v-else class="btn btn-success mr12">Loading...</button>
                 </div>
             </div>
         </div>

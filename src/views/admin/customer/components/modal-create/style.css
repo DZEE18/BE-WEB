@@ -23,7 +23,7 @@
     border-radius: 8px;
 }
 
-.input-info {
+/* .input {
     width: 100%;
     padding: 8px 13px;
     margin: 0 0 8px 0;
@@ -32,7 +32,7 @@
     box-sizing: border-box;
     outline: none;
     border-radius: 3px;
-}
+} */
 
 .text-info {
     float: right;

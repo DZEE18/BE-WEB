@@ -1,9 +1,9 @@
 <div v-if="productId" class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
-            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">Payment Detail</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row p12 border-bottom">
+                <b class="font16">Payment Detail</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
                 <div v-if="!isLoading" class="row">
@@ -38,7 +38,7 @@
                     <p class="item-info">Quantity : <span class="go-right">{{product.qty}}</span></p>
                     <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
                     <p class="item-info">Shipping Price : <span class="go-right">{{$helper.formatPrice(product.shippingPrice)}}</span></p>
-                    <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
+                    <p class="item-info">Status : <span class="go-right txt-capitalize">{{product.status}}</span></p>
                     <p  v-if="product.payment" class="item-info">Payment Type : <span class="txt-capitalize go-right">{{product.payment.paymentType}}</span></p>
                     <div v-if="product.payment" class="row mt16">
                         <p class="mb0">Payment Attachment</p>
@@ -52,9 +52,9 @@
                     Loading...
                 </div>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row pv12 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                    <button @click="onClose" class="btn btn-default mr12">Close</button>
                 </div>
             </div>
         </div>

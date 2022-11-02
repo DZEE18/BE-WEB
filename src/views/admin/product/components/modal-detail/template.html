@@ -1,14 +1,14 @@
 <div v-if="product._id" class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
-            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">View Detail</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row p12 border-bottom">
+                <b class="font16">View Detail</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
                 <div class="row mb16">
-                    <table style="width: 100%">
-                        <thead style="border-bottom: 1px solid #ddd">
+                    <table class="table">
+                        <thead>
                             <th width="50px" class="txt-center"><small>Image</small></th>
                             <th><small>Product</small></th>
                             <th><small>Qty</small></th>
@@ -19,7 +19,7 @@
                         <tbody>
                             <tr>
                                 <td class="txt-center">
-                                    <img :src="product.images && product.images[0] ? product.images[0] : require('@/assets/images/default.jpeg')" style="height:36px" />
+                                    <img :src="product.images && product.images[0] ? product.images[0] : require('@/assets/images/default.jpeg')" style="height:32px" />
                                 </td>
                                 <td>
                                     <small>{{product.name}}</small>
@@ -36,7 +36,7 @@
                 <p class="item-info">Quantity : <span class="go-right">{{product.qty}}</span></p>
                 <p class="item-info">Price : <span class="go-right">{{$helper.formatPrice(product.price)}}</span></p>
                 <p class="item-info">Shipping Price : <span class="go-right">{{$helper.formatPrice(product.shippingPrice)}}</span></p>
-                <p class="item-info">Status : <span class="go-right">{{product.status}}</span></p>
+                <p class="item-info">Status : <span class="go-right txt-capitalize">{{product.status}}</span></p>
                 <p class="item-info">Created at : <span class="go-right">{{product.createdAt}}</span></p>
                 <div v-if="product.payment" class="row mt16">
                     <p class="mb0">Payment Attachment</p>
@@ -46,9 +46,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row pv12 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                    <button @click="onClose" class="btn btn-default mr12">Close</button>
                 </div>
             </div>
         </div>

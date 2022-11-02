@@ -2,13 +2,13 @@
     <div class="overlay">
         <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
             <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">Payment Detail</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+                <b class="font16">Payment Detail</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
                 <div v-if="!isLoading" class="row">
                     <div class="row mb16">
-                        <table style="width: 100%">
+                        <table class="table">
                             <thead style="border-bottom: 1px solid #ddd">
                                 <th width="50px" class="txt-center"><small>Image</small></th>
                                 <th><small>Product</small></th>
@@ -52,9 +52,9 @@
                     Loading...
                 </div>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row p12 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                    <button @click="onClose" class="btn btn-default">Close</button>
                 </div>
             </div>
         </div>

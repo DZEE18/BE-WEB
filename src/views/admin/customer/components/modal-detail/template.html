@@ -1,9 +1,9 @@
 <div v-if="item._id" class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
-            <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">View Detail</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+            <div class="row p12" style="border-bottom: 1px solid #ddd">
+                <b class="font16">View Detail</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
                 <div class="row mb6">
@@ -13,14 +13,14 @@
                 <p class="item-info">Fullname : <span class="go-right">{{item.firstname}} {{item.lastname}}</span></p>
                 <p class="item-info">Email : <span class="go-right">{{item.email}}</span></p>
                 <p class="item-info">Phone : <span class="go-right">{{item.phone}}</span></p>
-                <p class="item-info">Gender : <span class="go-right">{{item.gender}}</span></p>
-                <p class="item-info">Role : <span class="go-right">{{item.role}}</span></p>
+                <p class="item-info">Gender : <span class="txt-capitalize go-right">{{item.gender}}</span></p>
+                <p class="item-info">Role : <span class="txt-capitalize go-right">{{item.role}}</span></p>
                 <p class="item-info">Address : <span class="go-right">{{item.address}}</span></p>
                 <p class="item-info">Created at : <span class="go-right">{{item.createdAt}}</span></p>
             </div>
-            <div class="row pv16 txt-right" style="border-top: 1px solid #ddd;">
+            <div class="row pv12 txt-right" style="border-top: 1px solid #ddd;">
                 <div class="row">
-                    <button @click="onClose" class="btn btn-default btn-md mr12">Close</button>
+                    <button @click="onClose" class="btn btn-default mr12">Close</button>
                 </div>
             </div>
         </div>

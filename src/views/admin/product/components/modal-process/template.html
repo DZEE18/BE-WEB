@@ -1,17 +1,17 @@
 <div v-if="product._id" class="overlay">
     <div class="overlay">
-        <div style="width: 560px;background: white;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
+        <div style="width: 560px;background: white;border-radius: 4px;position: absolute;top:24px;left: 50%;transform: translateX(-50%);">
             <div class="row ph16 pv12" style="border-bottom: 1px solid #ddd">
-                <span class="font18">Confirm Verified</span>
-                <i @click="onClose" class="fa fa-times p6 go-right pointer"></i>
+                <b class="font16">Confirm Verified</b>
+                <i @click="onClose" class="fa fa-times p3 go-right pointer"></i>
             </div>
             <div class="row p16">
-                <div class="row">
-                    <label for="originalOrderNo">Original Order No</label>
+                <div class="row mb6">
+                    <label for="originalOrderNo" class="font14"><b>Original Order No</b></label>
                     <input v-model="body.originalOrderNo" id="originalOrderNo" type="text" class="input" />
                 </div>
-                <div class="row">
-                    <label for="originalPrice">Original Price</label>
+                <div class="row mb6">
+                    <label for="originalPrice" class="font14"><b>Original Price</b></label>
                     <input v-model="body.originalPrice" id="originalPrice" type="number" class="input" />
                 </div>
             </div>

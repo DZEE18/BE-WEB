@@ -55,11 +55,13 @@ a{
 .html-body img{
     max-width: 100% !important;
 }
-th, td{
+th{
+  background: #f2f2f2;
+  font-size: 14px;
   padding: 6px;
 }
-tr{
-  border: 1px solid #ddd;
+th, td{
+  padding: 8px 6px;
 }
 .hover{
   cursor: pointer;

@@ -24,11 +24,11 @@ select {
 }
 
 .input:hover {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--dark);
 }
 
 .input:focus {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--dark);
 }
 
 .no-resize {
